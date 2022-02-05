@@ -1,6 +1,9 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
+
+print(os.environ['NEW_RELIC_LICENSE_KEY'])
 
 @app.route("/")
 def pagina_inicial():
