@@ -20,8 +20,7 @@ jobs:
 
       - name: Declare Envs
         run: |
-          sed -i "s/licensekey/${{ secrets.NEW_RELIC_LICENSE_KEY }}/g" .env
-          cat .env
+          sed -i "s/licensekey/${{ secrets.NEW_RELIC_LICENSE_KEY }}/g" Dockerfile
 
       - name: Login to Heroku Container registry
         env: 

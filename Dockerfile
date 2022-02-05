@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-ENV NEW_RELIC_CONFIG_FILE=newrelic.ini PORT=80
+ENV NEW_RELIC_CONFIG_FILE=newrelic.ini PORT=80 NEW_RELIC_LICENSE_KEY=licensekey
 
 WORKDIR /app
 
