@@ -23,8 +23,13 @@ jobs:
           sed -i "s/licensekey/${{ secrets.NEW_RELIC_LICENSE_KEY }}/g" Dockerfile
 
       - name: Create table in DB if not exist
+        env: 
+          DB_HOST: ${{ secrets.DB_HOST }}
+          DB_NAME: ${{ secrets.DB_NAME }}
+          DB_PASS: ${{ secrets.DB_PASS }}
+          DB_USER: ${{ secrets.DB_USER }}
         run: |
-          psql -v
+          PGPASSWORD=$DB_PASS psql -h $DB_HOST -d $DB_NAME -U $DB_USER db/user.sql
 
       - name: Login to Heroku Container registry
         env: 
