@@ -13,4 +13,4 @@ def soma_valores():
     return "Sua soma de 10+10="+str(x)
 
 if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0', port=environ.get("PORT", 5000))
+    app.run(debug=True)
