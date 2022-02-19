@@ -1,4 +1,3 @@
 flask
 newrelic
 gunicorn
-psycopg2
