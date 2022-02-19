@@ -29,7 +29,7 @@ jobs:
           DB_PASS: ${{ secrets.DB_PASS }}
           DB_USER: ${{ secrets.DB_USER }}
         run: |
-          PGPASSWORD=$DB_PASS psql -h $DB_HOST -d $DB_NAME -U $DB_USER db/user.sql
+          PGPASSWORD=$DB_PASS psql -h $DB_HOST -d $DB_NAME -U $DB_USER -f db/user.sql
 
       - name: Login to Heroku Container registry
         env: 
