@@ -28,8 +28,11 @@ jobs:
           DB_NAME: ${{ secrets.DB_NAME }}
           DB_PASS: ${{ secrets.DB_PASS }}
           DB_USER: ${{ secrets.DB_USER }}
+          DB_HOST_GCP: ${{ secrets.DB_HOST_GCP }}
+          DB_NAME_GCP: ${{ secrets.DB_NAME_GCP }}
         run: |
           PGPASSWORD=$DB_PASS psql -h $DB_HOST -d $DB_NAME -U $DB_USER -f db/user.sql
+          PGPASSWORD=$DB_PASS psql -h $DB_HOST_GCP -d $DB_NAME_GCP -U $DB_USER -f db/user.sql
           sed -i "s/host_heroku/$DB_HOST/g" app.py
           sed -i "s/name_heroku/$DB_NAME/g" app.py
           sed -i "s/pass_heroku/$DB_PASS/g" app.py
